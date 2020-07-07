@@ -1,0 +1,12 @@
+{
+  "name": "dating-app-native",
+  "displayName": "dating-app-native",
+  "expo": {
+    "name": "dating-app-native",
+    "slug": "dating-app-native",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
