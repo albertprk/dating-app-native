@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, Switch } from 'react-native';
+import { StyleSheet, Text, View, Button, Switch, Image } from 'react-native';
 
 export default class App extends Component {
   constructor(props) {
@@ -20,17 +20,21 @@ export default class App extends Component {
             <OrientationOption option="Bisexual" />
             <OrientationOption option="Asexual" />
           </View>
+          <View style={styles.continueButton}><Button color="white" title="CONTINUE" /></View>
         </View>
     );
   }
 }
 
-function Header() {
-  return (
-      <View style={styles.screenHeader}>
-        <Text style={styles.skipButton}>SKIP</Text>
-      </View>
-  );
+class Header extends Component {
+  render() {
+    return (
+        <View style={styles.screenHeader}>
+          <View style={styles.back}><Text style={styles.backButton}>{"<"}</Text></View>
+          <View style={styles.skip}><Text style={styles.skipButton}>SKIP</Text></View>
+        </View>
+    );
+  }
 }
 
 class OrientationOption extends Component {
@@ -60,8 +64,7 @@ class OrientationOption extends Component {
             <View style={styles.orientationButton}>
               <Button color="black" title={this.props.option} onPress={this.handlePress} />
             </View>
-            <View style={styles.checkMark}>
-            </View>
+            <Image style={styles.check} source={require("./check.png")} />
           </View>
       )
     } else {
@@ -91,13 +94,22 @@ const styles = StyleSheet.create({
     marginTop: 35,
     flexDirection: 'row',
     marginBottom: 60,
-    textAlign: 'right',
+  },
+  backButton: {
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "lightgray",
+    marginTop: -5,
   },
   skipButton: {
     fontSize: 18,
     color: 'lightgray',
     fontWeight: 'bold',
     textAlign: 'right',
+  },
+  skip: {
+    width: "15%",
+    marginLeft: "70%",
   },
   orientationInstruction: {
     fontSize: 12,
@@ -109,6 +121,7 @@ const styles = StyleSheet.create({
   },
   orientationForm: {
     width: '70%',
+    marginBottom: 30,
   },
   checkForm: {
     alignItems: 'left',
@@ -121,4 +134,19 @@ const styles = StyleSheet.create({
     alignItems: 'left',
     width: '60%',
   },
+  check: {
+    marginTop: 8,
+    marginLeft: "30%",
+    height: 18,
+    width: 18,
+  },
+  continueButton: {
+    backgroundColor: "#00b87e",
+    paddingTop: 3,
+    fontSize: 15,
+    fontWeight: "700",
+    width: "65%",
+    height: 45,
+    borderRadius: 28,
+  }
 });
