@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
 
 const orientations = [
@@ -77,6 +78,10 @@ class OrientationOption extends Component {
       </View>
     )
   }
+}
+
+OrientationOption.propTypes = {
+  option: PropTypes.string.isRequired,
 }
 
 const styles = StyleSheet.create({
