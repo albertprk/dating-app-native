@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 
-class App extends Component {
+class BirthdayScreen extends Component {
     constructor() {
         super();
         this.state = {
@@ -65,7 +65,7 @@ class App extends Component {
     }
 }
 
-export default App;
+export default BirthdayScreen;
 
 const styles = StyleSheet.create({
     container: {
