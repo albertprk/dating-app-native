@@ -5,7 +5,14 @@ class BirthdayScreen extends Component {
     constructor() {
         super();
         this.state = {
-            name: '',
+            yearDigit1: null,
+            yearDigit2: null,
+            yearDigit3: null,
+            yearDigit4: null,
+            monthDigit1: null,
+            monthDigit2: null,
+            dayDigit1: null,
+            dayDigit2: null,
         };
     }
 
@@ -20,8 +27,11 @@ class BirthdayScreen extends Component {
                         maxLength={1}
                         placeholder="Y"
                         style={styles.birthdayInputField}
-                        clearTextOnFocus={true}
-                        onChangeText={() => this.refTwo.focus()}
+                        selectTextOnFocus={true}
+                        onChangeText={(text) => {
+                            this.setState({yearDigit1: text})
+                            this.refTwo.focus();
+                        }}
                     />
                     <TextInput
                         ref={refTwo => this.refTwo = refTwo}
@@ -29,8 +39,11 @@ class BirthdayScreen extends Component {
                         maxLength={1}
                         placeholder="Y"
                         style={styles.birthdayInputField}
-                        clearTextOnFocus={true}
-                        onChangeText={() => this.refThree.focus()}
+                        selectTextOnFocus={true}
+                        onChangeText={(text) => {
+                            this.setState({yearDigit2: text})
+                            this.refThree.focus();
+                        }}
                     />
                     <TextInput
                         ref={refThree => this.refThree = refThree}
@@ -38,8 +51,11 @@ class BirthdayScreen extends Component {
                         maxLength={1}
                         placeholder="Y"
                         style={styles.birthdayInputField}
-                        clearTextOnFocus={true}
-                        onChangeText={() => this.refFour.focus()}
+                        selectTextOnFocus={true}
+                        onChangeText={(text) => {
+                            this.setState({yearDigit3: text})
+                            this.refFour.focus();
+                        }}
                     />
                     <TextInput
                         ref={refFour => this.refFour = refFour}
@@ -47,8 +63,11 @@ class BirthdayScreen extends Component {
                         maxLength={1}
                         placeholder="Y"
                         style={styles.birthdayInputField}
-                        clearTextOnFocus={true}
-                        onChangeText={() => this.refFive.focus()}
+                        selectTextOnFocus={true}
+                        onChangeText={(text) => {
+                            this.setState({yearDigit4: text})
+                            this.refFive.focus();
+                        }}
                     />
                     <Text style={styles.birthdayEntrySeparator}>/</Text>
                     <TextInput
@@ -57,8 +76,11 @@ class BirthdayScreen extends Component {
                         maxLength={1}
                         placeholder="M"
                         style={styles.birthdayInputField}
-                        clearTextOnFocus={true}
-                        onChangeText={() => this.refSix.focus()}
+                        selectTextOnFocus={true}
+                        onChangeText={(text) => {
+                            this.setState({monthDigit1: text})
+                            this.refSix.focus();
+                        }}
                     />
                     <TextInput
                         ref={refSix => this.refSix = refSix}
@@ -66,8 +88,11 @@ class BirthdayScreen extends Component {
                         maxLength={1}
                         placeholder="M"
                         style={styles.birthdayInputField}
-                        clearTextOnFocus={true}
-                        onChangeText={() => this.refSeven.focus()}
+                        selectTextOnFocus={true}
+                        onChangeText={(text) => {
+                            this.setState({monthDigit2: text})
+                            this.refSeven.focus();
+                        }}
                     />
                     <Text style={styles.birthdayEntrySeparator}>/</Text>
                     <TextInput
@@ -76,8 +101,11 @@ class BirthdayScreen extends Component {
                         maxLength={1}
                         placeholder="D"
                         style={styles.birthdayInputField}
-                        clearTextOnFocus={true}
-                        onChangeText={() => this.refEight.focus()}
+                        selectTextOnFocus={true}
+                        onChangeText={(text) => {
+                            this.setState({dayDigit1: text})
+                            this.refEight.focus();
+                        }}
                     />
                     <TextInput
                         ref={refEight => this.refEight = refEight}
@@ -85,8 +113,10 @@ class BirthdayScreen extends Component {
                         maxLength={1}
                         placeholder="D"
                         style={styles.birthdayInputField}
-                        clearTextOnFocus={true}
-                        onChangeText={() => this.refEight.focus()}
+                        selectTextOnFocus={true}
+                        onChangeText={(text) => {
+                            this.setState({dayDigit2: text})
+                        }}
                     />
                 </View>
                 <Text style={styles.subText}>Your age will be public</Text>
@@ -96,18 +126,6 @@ class BirthdayScreen extends Component {
 }
 
 export default BirthdayScreen;
-
-const NumericTextInputField = (props) => {
-    return (
-        <TextInput
-            keyboardType="numeric"
-            maxLength={1}
-            placeholder={props.placeholder}
-            style={styles.birthdayInputField}
-            onChangeText={() => this.refTwo.focus()}
-        />
-    );
-}
 
 const styles = StyleSheet.create({
     container: {
